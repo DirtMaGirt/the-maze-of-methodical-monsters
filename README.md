@@ -32,7 +32,7 @@ Well, if you run this app, you'll get a ton of `undefined`s printed to the scree
 
     But in `main.js`, we're replacing them with the values in `player.hitPoints` and `monster.hitPoints`. So let's, for now, set the `player` and `monster` objects' `hitPoints` properties to equal those starting values. They're not changing yet, but... we'll get there!
 
-* Similarly, the "barely scratched" text appears to come from... well, check it out in `main.js`. Let's make those properties on `monster` and `player` and set them to... whatever you think it should be set to when nothing has actually happened yet.
+* Similarly, the "barely scratched" text appears to come from... well, check it out in `main.js`. Let's make those properties on `monster` and `player` and set them to... whatever you think it should be set to when nothing has actually happened yet.f
 * There's also a bit of "level" text. Let's give the `player` a `level` property and set it to 1. First level!
 * We'll start on the methods in a second, but there is one more property on both objects that we can see in use in `main.js`: `isAlive`. Setting it to `true` is going to start a chain reaction of code we need to write, but let's do it!
 

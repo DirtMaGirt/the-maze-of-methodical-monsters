@@ -6,17 +6,17 @@ function init() {
 
 function attackRound(event) {
     event.preventDefault();
-    
-    if (monster.isAlive === false) {
+
+    if (monster.isAlive === true) {
         monster.respawn();
         player.levelUp();
         updateLevel();
     }
-    
+
     if (player.isAlive === true) {
         player.fight(monster)
     }
-    
+
     updateHtml();
 }
 
@@ -24,7 +24,7 @@ function updateHtml() {
     updateDamage();
     updateHealthBars();
     updateResult();
-}   
+}
 
 function updateDamage() {
     let monsterDamageAction = getAction(monster.lastDamageTaken)
@@ -33,7 +33,7 @@ function updateDamage() {
     const monsterDamageText = `You ${monsterDamageAction} the monster for ${monster.lastDamageTaken} damage.`
 
     const playerDamageText = `The monster ${playerDamageAction} you for ${player.lastDamageTaken} damage.`;
-    
+
     document.querySelector('#player-damage-taken').innerText = playerDamageText;
     document.querySelector('#monster-damage-taken').innerText = monsterDamageText;
 }
@@ -42,17 +42,17 @@ function getAction(damage) {
     if (damage < 2) {
         return 'barely scratched';
     } else if (damage < 4) {
-       return 'hit';
+        return 'hit';
     } else {
-       return 'clobbered';
+        return 'wonked';
     }
 }
 
 function updateHealthBars() {
     const playerHealth = document.querySelector('#player-health');
-    playerHealth.innerText = `${player.hitPoints}`
+    playerHealth.innerText = `${player.hitPoints}`;
     playerHealth.style.width = `${player.hitPoints * 2}px`;
-    
+
     const monsterHealth = document.querySelector('#monster-health');
     monsterHealth.innerText = `${monster.hitPoints}`
     monsterHealth.style.width = `${monster.hitPoints * 2}px`;
@@ -63,9 +63,9 @@ function updateResult() {
     if (player.isAlive === false) {
         result = 'You died. Game over.';
     } else if (monster.isAlive === false) {
-        result = `You slayed the monster, leveled up, and got a slight heal. But here comes another...`; 
+        result = `You slayed the monster, leveled up, and got a slight heal. But here comes another...`;
     }
-    
+
     document.querySelector('#results').innerText = result;
 }
 
